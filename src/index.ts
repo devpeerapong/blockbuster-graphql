@@ -7,6 +7,7 @@ import { typeDefs } from "./typeDefs";
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
 });
 
 startStandaloneServer(server, {
