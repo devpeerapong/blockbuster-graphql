@@ -57,7 +57,8 @@ export const resolvers = {
           user: parent,
           borrowedAt: item.borrowedAt,
         }))
-        .slice(skip ?? 0, limit ?? 10);
+        .slice(skip ?? 0)
+        .slice(0, limit ?? 10);
     },
   },
   BorrowedMedia: {
@@ -79,7 +80,8 @@ export const resolvers = {
           (media) =>
             typeof available === "undefined" || media.available === available
         )
-        .slice(skip ?? 0, limit ?? 10);
+        .slice(skip ?? 0)
+        .slice(0, limit ?? 10);
     },
     media(_, { id }) {
       return medias.get(id);
